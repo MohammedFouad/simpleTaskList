@@ -27,7 +27,7 @@ import static com.advancedtimecontrol.gymlist.TaskContract.TaskEntry.TABLE_NAME;
 public class MainActivity extends AppCompatActivity {
 
     /**
-     * @param TAG will help distinguish between multiple activities in logcat
+     *  TAG will help distinguish between multiple activities in logcat
      */
     private static final String TAG = "MainActivity";
 
@@ -156,31 +156,11 @@ public class MainActivity extends AppCompatActivity {
         // int per = (int) percentOfNotCompletedToCompleted;
         progressBar.setProgress( per4);
 
-        /**
+        /*
          * check if there is a tasks available or not
          * in start no tasks will be recorded so the progress bar is already blank
          * so no need to set negative progress to it
          */
-
-//        if (numberOfNotCompletedTask > 0) {
-//
-//
-//            double percentOfNotCompletedToCompleted = toDoTasks - numberOfNotCompletedTask;
-//
-//            double per2 = percentOfNotCompletedToCompleted / toDoTasks;
-//            double per3 = per2 * 100;
-//            int per4 = (int) per3;
-//            // int per = (int) percentOfNotCompletedToCompleted;
-//            progressBar.incrementProgressBy(-per4);
-//        }
-//        progressBar.setMax(100 * toDoTasks);
-//
-//
-//       int percentOfNotCompletedToCompleted = ((toDoTasks - numberOfNotCompletedTask) / toDoTasks) * 100 ;
-//
-//        int per = (int)  percentOfNotCompletedToCompleted;
-//
-//        progressBar.incrementProgressBy( - per);
 
         db.close();
     }
@@ -206,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (mAdapter == null) {
-            mAdapter = new ArrayAdapter<String>(this,
+            mAdapter = new ArrayAdapter<>(this,
                     R.layout.item_todo,
                     R.id.task_title,
                     taskList);
@@ -244,31 +224,15 @@ public class MainActivity extends AppCompatActivity {
 
         read();
 
-        /**
+        /*
          * update the progress bar
          *
-         * */
+         */
 
         long tasksCount = getTaskCount();
 
         int numberOfNotCompletedTask = (int) tasksCount;
 
-//        if (toDoTasks == numberOfNotCompletedTask) {
-//            numberOfNotCompletedTask = numberOfNotCompletedTask - 1;
-//        }
-
-
-       // double percentOfNotCompletedToCompleted = toDoTasks - numberOfNotCompletedTask;
-     /**
-      int x = 1;
-      double per2 = ( (double) 1) /totalTasks ;
-      double per3 = per2 * 10 ;
-        int per4 = (int) per3;
-        // int per = (int) percentOfNotCompletedToCompleted;
-        int max = numberOfNotCompletedTask * totalTasks;
-        progressBar.setMax(max);
-        progressBar.incrementProgressBy(per4);
-*/
 
         int x = totalTasks - numberOfNotCompletedTask;
         double per2 = ( (double) x) /totalTasks ;
