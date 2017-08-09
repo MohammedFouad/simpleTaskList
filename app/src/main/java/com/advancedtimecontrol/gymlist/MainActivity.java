@@ -27,7 +27,7 @@ import static com.advancedtimecontrol.gymlist.TaskContract.TaskEntry.TABLE_NAME;
 public class MainActivity extends AppCompatActivity {
 
     /**
-     *  TAG will help distinguish between multiple activities in logcat
+     * TAG will help distinguish between multiple activities in logcat
      */
     private static final String TAG = "MainActivity";
 
@@ -70,18 +70,16 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         progressBar = (ProgressBar) findViewById(R.id.showProgress);
-
-
         mHelper = new TaskDbHelper(this);
 
         mTaskListView = (ListView) findViewById(R.id.taskList);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //        .setAction("Action", null).show();
+               // open pop up dialoge to add the new task
                 alert();
             }
         });
@@ -146,15 +144,14 @@ public class MainActivity extends AppCompatActivity {
         int numberOfNotCompletedTask = (int) tasksCount;
 
 
-
         int x = totalTasks - numberOfNotCompletedTask;
-        double per2 = ( (double) x) /totalTasks ;
-        double per3 = per2 * 100 ;
+        double per2 = ((double) x) / totalTasks;
+        double per3 = per2 * 100;
         int per4 = (int) per3;
         int max = 100 * totalTasks;
         progressBar.setMax(100);
         // int per = (int) percentOfNotCompletedToCompleted;
-        progressBar.setProgress( per4);
+        progressBar.setProgress(per4);
 
         /*
          * check if there is a tasks available or not
@@ -234,17 +231,15 @@ public class MainActivity extends AppCompatActivity {
         int numberOfNotCompletedTask = (int) tasksCount;
 
 
-        int x = totalTasks - numberOfNotCompletedTask;
-        double per2 = ( (double) x) /totalTasks ;
-        double per3 = per2 * 100 ;
-        int per4 = (int) per3;
-        int max = 100 * totalTasks;
+        int diffTasks = totalTasks - numberOfNotCompletedTask;
+        double diffTasksDivision = ((double) diffTasks) / totalTasks;
+        double difftasksPercent = diffTasksDivision * 100;
+        int difftasksPercentInteger = (int) difftasksPercent;
+        // maximum progress bar value is 100
         progressBar.setMax(100);
-        // int per = (int) percentOfNotCompletedToCompleted;
-        progressBar.setProgress( per4);
 
+        progressBar.setProgress(difftasksPercentInteger);
 
-        Toast.makeText(this, "number of total tasks " + totalTasks + " not completed " + numberOfNotCompletedTask + "per3    " + per2 , Toast.LENGTH_SHORT).show();
     }
 
     /**
