@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Gym List</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Simple Task List</string>
+    <string name="action_reset">Reset</string>
 </resources>

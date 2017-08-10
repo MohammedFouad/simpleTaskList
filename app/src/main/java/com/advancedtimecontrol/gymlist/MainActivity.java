@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // open pop up dialoge to add the new task
+                // open pop up dialoge to add the new task
                 alert();
             }
         });
@@ -266,7 +266,20 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            long tasksCount = getTaskCount();
+
+            int numberOfNotCompletedTask = (int) tasksCount;
+            if (totalTasks == 0) {
+                Toast.makeText(this, " No task to reset", Toast.LENGTH_SHORT).show();
+            }
+            if (numberOfNotCompletedTask > 0) {
+                Toast.makeText(this, " please complete unfinished tasks first", Toast.LENGTH_SHORT).show();
+            } else {
+                // reset progress bar and total tasks
+                progressBar.setProgress(0);
+                totalTasks = 0;
+            }
+
         }
 
         return super.onOptionsItemSelected(item);
