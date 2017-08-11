@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- a message will appear when user press reset in option menu at first start or where no tasks-->
+    <string name="noTasks">No tasks to reset</string>
+
+    <!-- a message will appear when user press reset in option menu and still unfinished tasks-->
+    <string name="completeTasks">please complete unfinished tasks first</string>
+
+</resources>

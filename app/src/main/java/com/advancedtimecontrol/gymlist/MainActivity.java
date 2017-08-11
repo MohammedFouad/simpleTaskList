@@ -270,10 +270,10 @@ public class MainActivity extends AppCompatActivity {
 
             int numberOfNotCompletedTask = (int) tasksCount;
             if (totalTasks == 0) {
-                Toast.makeText(this, " No task to reset", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, " " + getString(R.string.noTasks), Toast.LENGTH_SHORT).show();
             }
             if (numberOfNotCompletedTask > 0) {
-                Toast.makeText(this, " please complete unfinished tasks first", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, " " + getString(R.string.completeTasks), Toast.LENGTH_SHORT).show();
             } else {
                 // reset progress bar and total tasks
                 progressBar.setProgress(0);
