@@ -97,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
         final EditText taskEditText = new EditText(this);
 
         AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Add new Task")
-                .setMessage("What do you want to do next")
+                .setTitle(getString(R.string.addNewTask))
+                .setMessage(getString(R.string.messageTask))
                 .setView(taskEditText) // this the ID for the entered text in the Alert dialogue
-                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.addTaskButton), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // task will store the value entered in the alert dialogue that
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(getString(R.string.cancelTaskButton), null)
                 .create();
         dialog.show();
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="addNewTask">Add new task</string>
+    <string name="messageTask">What do you want to do next?</string>
+
+    <string name="addTaskButton">Add</string>
+    <string name="cancelTaskButton">Cancel</string>
+
+</resources>
