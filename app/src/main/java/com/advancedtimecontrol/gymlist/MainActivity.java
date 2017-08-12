@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -62,12 +63,17 @@ public class MainActivity extends AppCompatActivity {
 
     int totalTasks = 0;
 
+    TextView numOfTasks;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+       numOfTasks = (TextView) findViewById(R.id.numOfTasksTextView);
+        numOfTasks.setText("" + totalTasks);
 
         progressBar = (ProgressBar) findViewById(R.id.showProgress);
         mHelper = new TaskDbHelper(this);
@@ -153,6 +159,8 @@ public class MainActivity extends AppCompatActivity {
         // int per = (int) percentOfNotCompletedToCompleted;
         progressBar.setProgress(per4);
 
+        numOfTasks.setText("" + totalTasks);
+
         /*
          * check if there is a tasks available or not
          * in start no tasks will be recorded so the progress bar is already blank
@@ -187,12 +195,16 @@ public class MainActivity extends AppCompatActivity {
                     R.layout.item_todo,
                     R.id.task_title,
                     taskList);
+
             mTaskListView.setAdapter(mAdapter);
+
+
         } else {
             mAdapter.clear();
             mAdapter.addAll(taskList);
             mAdapter.notifyDataSetChanged();
         }
+
 
         // getTaskCount() will fetch the number of rows in the database
         // number of rows will indicate how many unfinished tasks
@@ -201,6 +213,8 @@ public class MainActivity extends AppCompatActivity {
 
         cursor.close();
         db.close();
+
+
     }
 
     /**
@@ -239,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar.setMax(100);
 
         progressBar.setProgress(difftasksPercentInteger);
-
+        numOfTasks.setText("" + totalTasks);
     }
 
     /**
@@ -278,6 +292,7 @@ public class MainActivity extends AppCompatActivity {
                 // reset progress bar and total tasks
                 progressBar.setProgress(0);
                 totalTasks = 0;
+                numOfTasks.setText("" + totalTasks);
             }
 
         }
