@@ -18,7 +18,7 @@
 
 
 
-        <TextView
+        <EditText
             android:layout_weight="1"
             android:id="@+id/textview"
             android:layout_width="0dp"
@@ -26,7 +26,7 @@
             android:layout_marginTop="15dp"
             android:fontFamily="monospace"
             android:gravity="start"
-            android:text="@string/progress"
+            android:hint="Enter your text"
             android:textColor="@color/colorAccent"
             android:textSize="15sp"
             android:textStyle="bold" />

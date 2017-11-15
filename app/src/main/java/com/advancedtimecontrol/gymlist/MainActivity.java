@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private TaskDbHelper mHelper;
 
     /**
-     * task is the text entert in the alert dialogue
+     * task is the text entered in the alert dialogue
      * this value will be stored in the database under the write() method
      */
     String task;
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
      * <p>
      * if we have ten tasks to be done
      * we complete one task then progress bar will increase by 10%
-     * if we complete another one it will ancrease by another 10 percent so total increase will
+     * if we complete another one it will increase by another 10 percent so total increase will
      * be 20 percent
      * if we add another task so the total number of tasks will be 11 ( 10 + new one )
      * which means that the progress bar must decrease by
@@ -279,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_reset) {
             long tasksCount = getTaskCount();
 
             int numberOfNotCompletedTask = (int) tasksCount;
